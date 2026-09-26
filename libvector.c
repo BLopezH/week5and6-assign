@@ -14,11 +14,19 @@ Vector vectorNew(int size){
 }
 
 void vectorDelete(Vector vector){
+    if((*vector).data != NULL){
+        free((*vector).data);
+    }
 
+    free(vector);
 }
 
 void vectorPush(Vector *vector, int value){
+    Vector vec = *vector;
 
+    if((*vec).size >= (*vec).capacity){
+        
+    }
 }
 
 int *vectorResize(Vector *vector,int addSize){

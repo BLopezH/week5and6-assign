@@ -7,7 +7,7 @@ LIBDIR = $(PREFIX)/lib
 all: myprog
 
 myprog: myprog.c mylib.h libmylib.so
-	gcc myprog.c -L. -lmylib -o myprog -Wl,-rpath,. -o myprog
+	gcc myprog.c -L. -lmylib -o myprog
 
 libvector.o: libvector.c mylib.h
 	gcc -c -fPIC libvector.c -o libvector.o
