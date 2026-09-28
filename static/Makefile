@@ -6,24 +6,24 @@ LIBDIR = $(PREFIX)/lib
  
 all: myprog
  
-myprog: myprog.c mylib.h libmylib.a
-	gcc myprog.c -L. -lmylib -o myprog
+myprog: myprog.c vector.h libvector.a
+	gcc myprog.c -L. -lvector -o myprog
  
-libvector.o: libvector.c mylib.h
+libvector.o: libvector.c vector.h
 	gcc -c libvector.c -o libvector.o
  
-libmylib.a: libvector.o
-	ar rs libmylib.a libvector.o
+libvector.a: libvector.o
+	ar rs libvector.a libvector.o
  
-install: libmylib.a mylib.h
-	cp mylib.h $(INCDIR)
-	chmod 664 $(INCDIR)/mylib.h
-	cp libmylib.a $(LIBDIR)
-	chmod 664 $(LIBDIR)/libmylib.a
+install: libvector.a vector.h
+	cp vector.h $(INCDIR)
+	chmod 664 $(INCDIR)/vector.h
+	cp libvector.a $(LIBDIR)
+	chmod 664 $(LIBDIR)/libvector.a
  
 uninstall:
-	rm -f $(INCDIR)/mylib.h
-	rm -f $(LIBDIR)/libmylib.a
+	rm -f $(INCDIR)/vector.h
+	rm -f $(LIBDIR)/libvector.a
  
 clean:
-	rm -f libvector.o libmylib.a myprog
+	rm -f libvector.o libvector.a myprog

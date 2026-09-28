@@ -1,9 +1,7 @@
-#ifndef MYLIB_H
-#define MYLIB_H
+#ifndef VECTOR_H
+#define VECTOR_H
 
-#include <stdio.h>
-
-#define SIZE 5
+typedef struct vector *Vector;
 
 Vector vectorNew(int size);
 void vectorDelete(Vector vector);
